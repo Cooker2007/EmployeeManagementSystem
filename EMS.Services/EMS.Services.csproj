@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AA7CDCF3-7F4F-4620-9978-EE7413C2716F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EMS.Services</RootNamespace>
+    <AssemblyName>EMS.Services</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ConversionHelper\ConversionHelper.cs" />
+    <Compile Include="Implementations\DepartmentService.cs" />
+    <Compile Include="Implementations\EmployeeService.cs" />
+    <Compile Include="Implementations\ResourceNotFoundException.cs" />
+    <Compile Include="Implementations\SalaryService.cs" />
+    <Compile Include="Interfaces\IDepartmentService.cs" />
+    <Compile Include="Interfaces\IEmployeeService.cs" />
+    <Compile Include="Interfaces\ISalaryService.cs" />
+    <Compile Include="MainService.cs" />
+    <Compile Include="Messaging\Department\GetDepartmentNamesResponse.cs" />
+    <Compile Include="Messaging\Department\GetDepartmentsResponse.cs" />
+    <Compile Include="Messaging\Employee\ChangeEmployeeDepartmentRequest.cs" />
+    <Compile Include="Messaging\Employee\ChangeEmployeeDepartmentResponse.cs" />
+    <Compile Include="Messaging\Employee\ChangeEmployeeSalaryRequest.cs" />
+    <Compile Include="Messaging\Employee\ChangeEmployeeSalaryResponse.cs" />
+    <Compile Include="Messaging\Employee\ChangeEmployeeTitleRequest.cs" />
+    <Compile Include="Messaging\Employee\ChangeEmployeeTitleResponse.cs" />
+    <Compile Include="Messaging\Employee\DeleteEmployeeRequest.cs" />
+    <Compile Include="Messaging\Employee\DeleteEmployeeResponse.cs" />
+    <Compile Include="Messaging\Employee\GetEmployeeDepartmentHistoryRequest.cs" />
+    <Compile Include="Messaging\Employee\GetEmployeeDepartmentHistoryResponse.cs" />
+    <Compile Include="Messaging\Employee\GetEmployeeRequest.cs" />
+    <Compile Include="Messaging\Employee\GetEmployeeResponse.cs" />
+    <Compile Include="Messaging\Employee\GetEmployeeSalaryHistoryRequest.cs" />
+    <Compile Include="Messaging\Employee\GetEmployeeSalaryHistoryResponse.cs" />
+    <Compile Include="Messaging\Employee\GetEmployeeSalaryRequest.cs" />
+    <Compile Include="Messaging\Employee\GetEmployeeSalaryResponse.cs" />
+    <Compile Include="Messaging\Employee\GetEmployeesResponse.cs" />
+    <Compile Include="Messaging\Employee\GetEmployeeTitleHistoryRequest.cs" />
+    <Compile Include="Messaging\Employee\GetEmployeeTitleHistoryResponse.cs" />
+    <Compile Include="Messaging\Employee\InsertEmployeeRequest.cs" />
+    <Compile Include="Messaging\Employee\InsertEmployeeResponse.cs" />
+    <Compile Include="Messaging\Employee\UpdateEmployeeRequest.cs" />
+    <Compile Include="Messaging\Employee\UpdateEmployeeResponse.cs" />
+    <Compile Include="Messaging\IntegerIdRequest.cs" />
+    <Compile Include="Messaging\Salary\InsertSalaryRequest.cs" />
+    <Compile Include="Messaging\Salary\InsertSalaryResponse.cs" />
+    <Compile Include="Messaging\ServiceRequestBase.cs" />
+    <Compile Include="Messaging\ServiceResponseBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\DepartmentEmployeeHistoryViewModel.cs" />
+    <Compile Include="ViewModels\DepartmentNamesViewModel.cs" />
+    <Compile Include="ViewModels\DepartmentViewModel.cs" />
+    <Compile Include="ViewModels\Employee\EmployeePorperties.cs" />
+    <Compile Include="ViewModels\Employee\InsertEmployeeProperties.cs" />
+    <Compile Include="ViewModels\Employee\EmployeeViewModel.cs" />
+    <Compile Include="ViewModels\Salary\SalaryProperties.cs" />
+    <Compile Include="ViewModels\Salary\SalaryViewModel.cs" />
+    <Compile Include="ViewModels\TitleViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EMS.Data\EMS.Data.csproj">
+      <Project>{e3c55721-571e-4106-9f49-cf752a30a639}</Project>
+      <Name>EMS.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EMS.Domain\EMS.Domain.csproj">
+      <Project>{09d070dc-da67-442b-8002-2a61bcc6c0df}</Project>
+      <Name>EMS.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure.Common\Infrastructure.Common.csproj">
+      <Project>{1e9e411d-5cc4-4d0d-acce-ca4ea43b407e}</Project>
+      <Name>Infrastructure.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

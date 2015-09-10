@@ -1,0 +1,19 @@
+﻿<Window x:Class="EMS.DesktopInterface.ChangeSalary"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Change Salary" Height="235" Width="254">
+    <Grid Background="#FFE5E5E5">
+        <Label Content="Employee Id:" HorizontalAlignment="Left" Margin="19,10,0,0" VerticalAlignment="Top" Height="26" Width="94" />
+        <Label Content="Current Salary:" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" Height="26" Width="94" />
+        <Label Content="New Salary:" HorizontalAlignment="Left" Margin="26,98,0,0" VerticalAlignment="Top" Height="26" />
+        <Label Content="Effective on:" HorizontalAlignment="Left" Margin="23,126,0,0" VerticalAlignment="Top" Height="26" Width="74" />
+
+        <Label x:Name="EmployeeId" HorizontalAlignment="Left" Height="23" Margin="100,10,0,0" VerticalAlignment="Top" Width="120" TabIndex="1" IsTabStop="False" />
+        <Label x:Name="CurrentSalaryAmount" HorizontalAlignment="Left" Height="23" Margin="100,36,0,0" VerticalAlignment="Top" Width="120" TabIndex="1" IsTabStop="False" />
+        <TextBox x:Name="NewSalaryAmount" HorizontalAlignment="Left" Height="23" Margin="104,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TabIndex="3" />
+        <DatePicker x:Name="SalaryStartsOn" HorizontalAlignment="Left" Height="24" Margin="104,126,0,0" VerticalAlignment="Top" Width="120" TabIndex="4" Loaded="SalaryStartsOn_Loaded" />
+
+        <Button x:Name="BtnOk" Content="OK" HorizontalAlignment="Left" Margin="74,161,0,0" VerticalAlignment="Top" Width="75" TabIndex="5" Click="BtnOk_Click"/>
+        <Button x:Name="BtnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="154,161,0,0" VerticalAlignment="Top" Width="75" IsCancel="True" TabIndex="6" Click="BtnCancel_Click"/>
+    </Grid>
+</Window>

@@ -1,0 +1,19 @@
+﻿<Window x:Class="EMS.DesktopInterface.ChangeTitle"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ChangeTitle" Height="215" Width="254">
+    <Grid Background="#FFE5E5E5">
+        <Label Content="Current Title:" HorizontalAlignment="Left" Margin="19,12,0,0" VerticalAlignment="Top" Width="79" />
+        <Label Content="From:" HorizontalAlignment="Left" Margin="57,39,0,0" VerticalAlignment="Top" Height="26" />
+        <Label Content="New Title:" HorizontalAlignment="Left" Margin="34,78,0,0" VerticalAlignment="Top" />
+        <Label Content="Effective on:" HorizontalAlignment="Left" Margin="23,107,0,0" VerticalAlignment="Top" Height="26" Width="74" />
+
+        <TextBox x:Name="CurrentTitleName" HorizontalAlignment="Left" Height="23" Margin="104,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TabIndex="1" IsEnabled="False" IsTabStop="False" />
+        <TextBox x:Name="CurrentTitleDate" HorizontalAlignment="Left" Height="23" Margin="104,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TabIndex="2" IsEnabled="False" IsTabStop="False" />
+        <TextBox x:Name="NewTitleName" HorizontalAlignment="Left" Height="23" Margin="104,79,0,0" VerticalAlignment="Top" Width="120" TabIndex="3" Loaded="NewTitleName_Loaded" />
+        <DatePicker x:Name="NewTitleStartsOn" HorizontalAlignment="Left" Height="24" Margin="104,107,0,0" VerticalAlignment="Top" Width="120" TabIndex="4" Loaded="NewTitleStartsOn_Loaded" />
+
+        <Button x:Name="BtnOk" Content="OK" HorizontalAlignment="Left" Margin="74,142,0,0" VerticalAlignment="Top" Width="75" TabIndex="5" Click="BtnOk_Click"/>
+        <Button x:Name="BtnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="154,142,0,0" VerticalAlignment="Top" Width="75" IsCancel="True" TabIndex="6" Click="BtnCancel_Click"/>
+    </Grid>
+</Window>

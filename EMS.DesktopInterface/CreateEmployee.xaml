@@ -1,0 +1,21 @@
+﻿<Window x:Class="EMS.DesktopInterface.CreateEmployee"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="New Employee" Width="235" Height="237">
+    <Grid Background="#FFE5E5E5">
+        <Label Content="First Name:" HorizontalAlignment="Left" Margin="15,7,0,0" VerticalAlignment="Top" Height="26" Width="70" />
+        <Label Content="Last Name:" HorizontalAlignment="Left" Margin="16,37,0,0" VerticalAlignment="Top" Height="26" Width="69" />
+        <Label Content="Gender:" HorizontalAlignment="Left" Margin="33,67,0,0" VerticalAlignment="Top" Height="26" Width="51" />
+        <Label Content="Birth Date:" HorizontalAlignment="Left" Margin="19,97,0,0" VerticalAlignment="Top" Height="26" Width="66" />
+        <Label Content="Hire Date:" HorizontalAlignment="Left" Margin="22,127,0,0" VerticalAlignment="Top" Height="26" Width="70" />
+
+        <TextBox x:Name="FirstName" HorizontalAlignment="Left" Height="23" Margin="90,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TabIndex="1" />
+        <TextBox x:Name="LastName" HorizontalAlignment="Left" Height="23" Margin="89,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TabIndex="2" />
+        <ComboBox x:Name="GenderSelection" HorizontalAlignment="Left" Margin="89,67,0,0" VerticalAlignment="Top" Width="120" Height="22" Loaded="Gender_Loaded" TabIndex="3" MaxDropDownHeight="50" />
+        <DatePicker x:Name="DateOfBirth" HorizontalAlignment="Left" Margin="89,99,0,0" VerticalAlignment="Top" Width="120" Height="24" TabIndex="4" />
+        <DatePicker x:Name="HireDate" HorizontalAlignment="Left" Margin="89,129,0,0" VerticalAlignment="Top" Width="120" Height="24" TabIndex="5" />
+
+        <Button x:Name="BtnOk" Content="OK" HorizontalAlignment="Left" Margin="54,0,0,10" Width="75" TabIndex="9" Click="BtnOk_Click" Height="23" VerticalAlignment="Bottom"/>
+        <Button x:Name="BtnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="134,0,0,10" Width="75" IsCancel="True" TabIndex="10" Click="BtnCancel_Click" Height="23" VerticalAlignment="Bottom"/>
+    </Grid>
+</Window>
