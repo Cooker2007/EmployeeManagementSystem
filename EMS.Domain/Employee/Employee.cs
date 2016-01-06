@@ -9,10 +9,6 @@ namespace EMS.Domain
     {
         protected Employee()
         {
-            this.Departments = new HashSet<DepartmentEmployee>();
-            this.Managers = new HashSet<DepartmentManager>();
-            this.Salaries = new HashSet<Salary>();
-            this.Titles = new HashSet<Title>();
         }
 
         private GenderType gender;
@@ -30,7 +26,7 @@ namespace EMS.Domain
 
         public string LastName { get; set; }
 
-        
+
         public string GenderDatabase { get; set; }
 
         public GenderType Gender
@@ -51,13 +47,13 @@ namespace EMS.Domain
 
         public DateTime? HireDate { get; private set; }
 
-        public virtual ICollection<DepartmentEmployee> Departments { get; set; }
+        public virtual ICollection<DepartmentEmployee> Departments { get; set; } = new HashSet<DepartmentEmployee>();
 
-        public virtual ICollection<DepartmentManager> Managers { get; set; }
+        public virtual ICollection<DepartmentManager> Managers { get; set; } = new HashSet<DepartmentManager>();
 
-        public virtual ICollection<Salary> Salaries { get; set; }
+        public virtual ICollection<Salary> Salaries { get; set; } = new HashSet<Salary>();
 
-        public virtual ICollection<Title> Titles { get; set; }
+        public virtual ICollection<Title> Titles { get; set; } = new HashSet<Title>();
 
         protected override void Validate()
         {
@@ -169,7 +165,7 @@ namespace EMS.Domain
 
         public static Employee CreateEmployee(string firstName, string lastName, DateTime? birthDate, DateTime? hireDate, GenderType gender)
         {
-            Employee newEmployee = new Employee(firstName, lastName, birthDate, hireDate, gender);
+            var newEmployee = new Employee(firstName, lastName, birthDate, hireDate, gender);
             return newEmployee;
         }
 

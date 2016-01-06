@@ -5,17 +5,15 @@ namespace EMS.Domain
 {
     public class Department : EntityBase<string>
     {
-        public Department()
+        protected Department()
         {
-            this.Employees = new HashSet<DepartmentEmployee>();
-            this.Managers = new HashSet<DepartmentManager>();
         }
 
         public string Name { get; set; }
 
-        public virtual ICollection<DepartmentEmployee> Employees { get; set; }
+        public virtual ICollection<DepartmentEmployee> Employees { get; set; } = new HashSet<DepartmentEmployee>();
 
-        public virtual ICollection<DepartmentManager> Managers { get; set; }
+        public virtual ICollection<DepartmentManager> Managers { get; set; } = new HashSet<DepartmentManager>();
 
         protected override void Validate()
         {
