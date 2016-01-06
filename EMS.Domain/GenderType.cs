@@ -11,7 +11,6 @@ namespace EMS.Domain
         }
 
         public GenderType()
-            : base()
         {
         }
 
@@ -40,7 +39,7 @@ namespace EMS.Domain
                     }
                 }
             }
-            result = GenderType.Unknown; ;
+            result = GenderType.Unknown;
             return false;
         }
 
@@ -50,16 +49,16 @@ namespace EMS.Domain
             return false;
         }
 
-        private class MaleType : GenderType
+        class MaleType : GenderType
         {
             public MaleType()
-                : base(1, "Male")
+                : base(1, nameof(Male))
             {
             }
 
             protected override bool InternalTryParse(string value, out GenderType result)
             {
-                List<string> acceptibleValues = new List<string>
+                var acceptibleValues = new List<string>
                 {
                     // Lowercase values
                     "m",
@@ -81,16 +80,16 @@ namespace EMS.Domain
             }
         }
 
-        private class FemaleType : GenderType
+        class FemaleType : GenderType
         {
             public FemaleType()
-                : base(2, "Female")
+                : base(2, nameof(Female))
             {
             }
 
             protected override bool InternalTryParse(string value, out GenderType result)
             {
-                List<string> acceptibleValues = new List<string>
+                var acceptibleValues = new List<string>
                 {
                     // Lowercase values
                     "f",
@@ -112,16 +111,16 @@ namespace EMS.Domain
             }
         }
 
-        private class OtherType : GenderType
+        class OtherType : GenderType
         {
             public OtherType()
-                : base(3, "Other")
+                : base(3, nameof(Other))
             {
             }
 
             protected override bool InternalTryParse(string value, out GenderType result)
             {
-                List<string> acceptibleValues = new List<string>
+                var acceptibleValues = new List<string>
                 {
                     // Lowercase values
                     "o",
@@ -143,7 +142,7 @@ namespace EMS.Domain
             }
         }
 
-        private class UnknownType : GenderType
+        class UnknownType : GenderType
         {
             public UnknownType()
                 : base(0, "Unknown")

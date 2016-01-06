@@ -4,7 +4,7 @@ namespace EMS.Data
     using EMS.Domain;
     using System.Data.Entity;
 
-    public partial class EMSContext : DbContext
+    public class EMSContext : DbContext
     {
         public EMSContext()
             : base("name=EmployeeModelSQLite")

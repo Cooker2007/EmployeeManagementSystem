@@ -8,9 +8,9 @@ namespace Infrastructure.Common.Domain
 
         private List<BusinessRule> brokenRules = new List<BusinessRule>();
 
-        public override bool Equals(object entity)
+        public override bool Equals(object obj)
         {
-            return entity != null && entity is EntityBase<TIdType> && this == (EntityBase<TIdType>)entity;
+            return obj is EntityBase<TIdType> && this == (EntityBase<TIdType>)obj;
         }
 
         public override int GetHashCode()

@@ -15,7 +15,7 @@ namespace EMS.DesktopInterface
     using EMS.Services;
 
     /// <summary>
-    /// Interaction logic for MainWindow.xaml management 
+    /// Interaction logic for MainWindow.xaml management
     /// </summary>
     public partial class MainWindow : Window
     {
@@ -23,7 +23,7 @@ namespace EMS.DesktopInterface
 
         private readonly IEmployeeService employeeService = MainService.EmployeeService;
         private readonly IDepartmentService departmentService = MainService.DepartmentService;
-        
+
         private EmployeeViewModel CurrentEmployeeData { get; set; }
 
 
@@ -45,8 +45,8 @@ namespace EMS.DesktopInterface
 
         private void SearchForEmployee(int searchNumber)
         {
-            GetEmployeeRequest request = new GetEmployeeRequest(searchNumber);
-            GetEmployeeResponse response = this.employeeService.GetEmployee(request);
+            var request = new GetEmployeeRequest(searchNumber);
+            var response = this.employeeService.GetEmployee(request);
 
             if (response.Exception != null)
             {
@@ -70,7 +70,7 @@ namespace EMS.DesktopInterface
 
             if (int.TryParse(this.EmployeeNumber.Content.ToString(), out employeeId))
             {
-                UpdateEmployeeRequest request = new UpdateEmployeeRequest(employeeId);
+                var request = new UpdateEmployeeRequest(employeeId);
                 var viewModel = this.CreateEmployeePropertiesViewModel();
                 request.EmployeePorperties = viewModel;
                 this.employeeService.UpdateEmployee(request);
@@ -98,7 +98,7 @@ namespace EMS.DesktopInterface
                 this.HistoryData.ItemsSource = this.processing.GetEmployeeSalaryHistory(employeeId);
             }
         }
-        
+
        private void DepartmentHistory_Click(object sender, RoutedEventArgs e)
        {
 
@@ -120,7 +120,7 @@ namespace EMS.DesktopInterface
 
         private void Gender_Loaded(object sender, RoutedEventArgs e)
         {
-            List<string> data = new List<string>() { "Male", "Female", "Other" };
+            var data = new List<string> { "Male", "Female", "Other" };
 
             var comboBox = sender as ComboBox;
 
@@ -219,7 +219,7 @@ namespace EMS.DesktopInterface
         private void btnCreateEmployee_Click(object sender, RoutedEventArgs e)
         {
             var createEmployeeWindow = new CreateEmployee(this.processing);
-            
+
             createEmployeeWindow.Show();
         }
     }

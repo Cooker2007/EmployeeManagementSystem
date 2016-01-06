@@ -1,4 +1,4 @@
-﻿<Window x:Class="EMS.DesktopInterface.Change_Department"
+﻿<Window x:Class="EMS.DesktopInterface.ChangeDepartment"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Change Department" Height="215" Width="254">

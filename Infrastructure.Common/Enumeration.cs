@@ -22,28 +22,19 @@ namespace Infrastructure.Common
     [Serializable]
     public abstract class Enumeration : IComparable
     {
-        private readonly int value;
-        private readonly string displayName;
-
         protected Enumeration()
         {
         }
 
         protected Enumeration(int value, string displayName)
         {
-            this.value = value;
-            this.displayName = displayName;
+            this.Value = value;
+            this.DisplayName = displayName;
         }
 
-        public int Value
-        {
-            get { return this.value; }
-        }
+        public int Value { get; }
 
-        public string DisplayName
-        {
-            get { return this.displayName; }
-        }
+        public string DisplayName { get; }
 
         public override string ToString()
         {
@@ -88,14 +79,14 @@ namespace Infrastructure.Common
             }
 
             var typeMatches = this.GetType().Equals(obj.GetType());
-            var valueMatches = this.value.Equals(otherValue.Value);
+            var valueMatches = this.Value.Equals(otherValue.Value);
 
             return typeMatches && valueMatches;
         }
 
         public override int GetHashCode()
         {
-            return this.value.GetHashCode();
+            return this.Value.GetHashCode();
         }
 
         public static int AbsoluteDifference(Enumeration firstValue, Enumeration secondValue)
@@ -106,7 +97,7 @@ namespace Infrastructure.Common
 
         public static T FromValue<T>(int value) where T : Enumeration, new()
         {
-            var matchingItem = parse<T, int>(value, "value", item => item.Value == value);
+            var matchingItem = parse<T, int>(value, nameof(Value), item => item.Value == value);
             return matchingItem;
         }
 
@@ -123,7 +114,7 @@ namespace Infrastructure.Common
 
             if (matchingItem == null)
             {
-                var message = string.Format("'{0}' is not a valid {1} in {2}", value, description, typeof(T));
+                var message = $"'{value}' is not a valid {description} in {typeof (T)}";
                 throw new ApplicationException(message);
             }
 

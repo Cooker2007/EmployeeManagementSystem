@@ -57,7 +57,7 @@ namespace EMS.Domain
 
         public static Title CreateTitle(int empId, string titleName, DateTime fromDate)
         {
-            Title newTitle = new Title(empId, titleName, fromDate);
+            var newTitle = new Title(empId, titleName, fromDate);
             return newTitle;
         }
 

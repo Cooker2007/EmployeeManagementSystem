@@ -10,7 +10,6 @@ namespace EMS.Domain
     {
         protected DepartmentEmployee()
         {
-            
         }
 
         private DepartmentEmployee(string departmentId, int employeeId, DateTime? fromDate)
@@ -54,7 +53,7 @@ namespace EMS.Domain
 
         public static DepartmentEmployee CreateDepartmentEmployee(string departmentId, int employeeId, DateTime fromDate)
         {
-            DepartmentEmployee de = new DepartmentEmployee(departmentId, employeeId,fromDate);
+            var de = new DepartmentEmployee(departmentId, employeeId,fromDate);
             return de;
         }
 

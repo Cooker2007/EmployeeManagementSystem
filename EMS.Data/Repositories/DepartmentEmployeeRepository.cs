@@ -13,7 +13,7 @@ namespace EMS.Data.Repositories
         }
 
         /// <summary>
-        /// Gets the all records of an Employee showing which Departments they worked in.  
+        /// Gets the all records of an Employee showing which Departments they worked in.
         /// </summary>
         /// <param name="employeeId"></param>
         /// <returns>Returns an IEnumerable in descending ordered by the FromDate.</returns>

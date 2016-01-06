@@ -17,9 +17,9 @@ namespace EMS.DesktopInterface
     /// <summary>
     /// Interaction logic for Change_Department.xaml
     /// </summary>
-    public partial class Change_Department : Window
+    public partial class ChangeDepartment : Window
     {
-        public Change_Department()
+        public ChangeDepartment()
         {
             InitializeComponent();
         }

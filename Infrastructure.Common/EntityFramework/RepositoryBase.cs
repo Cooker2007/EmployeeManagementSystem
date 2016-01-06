@@ -13,13 +13,13 @@ namespace Infrastructure.Common
         where TEntity : EntityBase<TIdType>
         where TContext : DbContext
     {
-        protected TContext Context { get; private set; }
+        protected TContext Context { get; }
 
-        public RepositoryBase(TContext context)
+        protected RepositoryBase(TContext context)
         {
             if (context == null)
             {
-                throw new ArgumentNullException("context", "Employee Context");
+                throw new ArgumentNullException(nameof(context), "Employee Context");
             }
             this.Context = context;
         }

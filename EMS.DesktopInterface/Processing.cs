@@ -22,8 +22,8 @@ namespace EMS.DesktopInterface
 
         public IEnumerable<TitleViewModel> GetEmployeeTitleHistory(int employeeId)
         {
-            
-                GetEmployeeTitleHistoryRequest request = new GetEmployeeTitleHistoryRequest(employeeId);
+
+                var request = new GetEmployeeTitleHistoryRequest(employeeId);
                 var response = this.employeeService.GetTitleHistory(request);
                 if (response != null && response.Exception == null)
                 {
@@ -34,8 +34,8 @@ namespace EMS.DesktopInterface
 
         public IEnumerable<DepartmentEmployeeHistoryViewModel> GetEmployeeDepartmentHistory(int employeeId)
         {
-            
-                GetEmployeeDepartmentHistoryRequest request = new GetEmployeeDepartmentHistoryRequest(employeeId);
+
+                var request = new GetEmployeeDepartmentHistoryRequest(employeeId);
                 var response = this.employeeService.GetDepartmentHistory(request);
                 if (response != null && response.Exception == null)
                 {
@@ -46,7 +46,7 @@ namespace EMS.DesktopInterface
 
         public IEnumerable<SalaryViewModel> GetEmployeeSalaryHistory(int employeeId)
         {
-                GetEmployeeSalaryHistoryRequest request = new GetEmployeeSalaryHistoryRequest(employeeId);
+                var request = new GetEmployeeSalaryHistoryRequest(employeeId);
                 var response = this.employeeService.GetSalaryHistory(request);
                 if (response != null && response.Exception == null)
                 {
@@ -55,33 +55,24 @@ namespace EMS.DesktopInterface
                 return null;
         }
 
-        //private void CurrentDepartment_Loaded(object sender, RoutedEventArgs e)
-        //{
-        //    List<string> data = this.CreateDepartmentList();
-
-        //    var comboBox = sender as ComboBox;
-        //    if (comboBox != null)
-        //    {
-        //        comboBox.ItemsSource = data;
-        //    }
-        //}
-
         public IEnumerable<string> GetDepartmentList()
         {
-            GetDepartmentNamesResponse response = this.departmentService.GetDepartmentNames();
+            var response = this.departmentService.GetDepartmentNames();
 
             return response.Departments.Names;
         }
 
         public bool SendCreateEmployeeRequest(InsertEmployeeProperties porperties)
         {
-            InsertEmployeeRequest request = new InsertEmployeeRequest();
-            request.InsertEmployeePorperties = porperties;
+            var request = new InsertEmployeeRequest
+            {
+                InsertEmployeePorperties = porperties
+            };
 
             var response = this.employeeService.InsertEmployee(request);
             if (response != null && response.Exception == null)
             {
-                MessageBox.Show(string.Format( "Response: {0}" + Environment.NewLine + "Employee Id: {1}" + Environment.NewLine + "Error Messages: {2}",
+                MessageBox.Show(string.Format("Response: {0}" + Environment.NewLine + "Employee Id: {1}" + Environment.NewLine + "Error Messages: {2}",
                     response.ResponceCode, response.EmployeeId, response.InvalidDataMessage));
                 if (!string.IsNullOrWhiteSpace(response.EmployeeId))
                 {
@@ -95,8 +86,10 @@ namespace EMS.DesktopInterface
         {
             int empId;
             int.TryParse(populateProperties.EmployeeId, out empId);
-            ChangeEmployeeSalaryRequest request = new ChangeEmployeeSalaryRequest(empId);
-            request.Properties = populateProperties;
+            var request = new ChangeEmployeeSalaryRequest(empId)
+            {
+                Properties = populateProperties
+            };
 
             var response = this.employeeService.ChangeSalary(request);
             if (response != null && response.Exception == null)
@@ -109,7 +102,6 @@ namespace EMS.DesktopInterface
                 MessageBox.Show(response.Exception.ToString());
             }
             return false;
-
         }
     }
 }

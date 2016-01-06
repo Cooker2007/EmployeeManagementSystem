@@ -2,19 +2,11 @@
 {
     public class BusinessRule
     {
-        private readonly string ruleDescription;
-
         public BusinessRule(string ruleDescription)
         {
-            this.ruleDescription = ruleDescription;
+            this.RuleDescription = ruleDescription;
         }
 
-        public string RuleDescription
-        {
-            get
-            {
-                return this.ruleDescription;
-            }
-        }
+        public string RuleDescription { get; }
     }
 }

@@ -28,7 +28,7 @@ namespace EMS.Data.Repositories
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="employeeId">The Id of the Employee.</param>
         /// <returns>Returns the Employees current Salary.</returns>
