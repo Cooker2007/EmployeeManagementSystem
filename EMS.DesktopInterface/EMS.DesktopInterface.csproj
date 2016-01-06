@@ -89,7 +89,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Change Department.xaml">
+    <Page Include="ChangeDepartment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -113,8 +113,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Change Department.xaml.cs">
-      <DependentUpon>Change Department.xaml</DependentUpon>
+    <Compile Include="ChangeDepartment.xaml.cs">
+      <DependentUpon>ChangeDepartment.xaml</DependentUpon>
     </Compile>
     <Compile Include="ChangeSalary.xaml.cs">
       <DependentUpon>ChangeSalary.xaml</DependentUpon>

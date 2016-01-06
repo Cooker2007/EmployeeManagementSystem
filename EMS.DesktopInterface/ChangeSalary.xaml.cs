@@ -46,7 +46,7 @@ namespace EMS.DesktopInterface
 
         private void BtnOk_Click(object sender, RoutedEventArgs e)
         {
-            bool result = this.processor.SendChangeEmployeeSalaryRequest(this.PopulateProperties());
+            var result = this.processor.SendChangeEmployeeSalaryRequest(this.PopulateProperties());
             if (result)
             {
                 this.Close();

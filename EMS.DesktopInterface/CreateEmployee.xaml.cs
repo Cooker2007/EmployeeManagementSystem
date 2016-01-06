@@ -35,7 +35,7 @@ namespace EMS.DesktopInterface
 
         private void Gender_Loaded(object sender, RoutedEventArgs e)
         {
-            List<string> data = new List<string>() { "Male", "Female", "Other" };
+            var data = new List<string>() { "Male", "Female", "Other" };
 
             var comboBox = sender as ComboBox;
 
@@ -47,7 +47,7 @@ namespace EMS.DesktopInterface
 
         private void BtnOk_Click(object sender, RoutedEventArgs e)
         {
-            bool result = this.processing.SendCreateEmployeeRequest(this.PopulateProperties());
+            var result = this.processing.SendCreateEmployeeRequest(this.PopulateProperties());
             if (result)
             {
                 this.Close();
@@ -61,7 +61,7 @@ namespace EMS.DesktopInterface
 
         private InsertEmployeeProperties PopulateProperties()
         {
-            InsertEmployeeProperties viewModel = new InsertEmployeeProperties
+            var viewModel = new InsertEmployeeProperties
             {
                 FirstName = this.FirstName.Text,
                 LastName = this.LastName.Text,
