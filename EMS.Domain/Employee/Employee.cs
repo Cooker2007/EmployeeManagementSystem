@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace EMS.Domain
 {
-    public partial class Employee : EntityBase<int>
+    public class Employee : EntityBase<int>
     {
         protected Employee()
         {

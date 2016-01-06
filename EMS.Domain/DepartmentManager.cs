@@ -3,7 +3,7 @@ using System;
 
 namespace EMS.Domain
 {
-    public partial class DepartmentManager : EntityBase<int>
+    public class DepartmentManager : EntityBase<int>
     {
         public string DepartmentId { get; set; }
 

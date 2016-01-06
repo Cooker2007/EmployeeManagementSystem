@@ -7,7 +7,7 @@ namespace EMS.Domain
 {
     using EmployeeType = Employee;
 
-    public partial class Salary : EntityBase<int>
+    public class Salary : EntityBase<int>
     {
         public double Amount { get; set; }
 

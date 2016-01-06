@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace EMS.Domain
 {
-    public partial class Department : EntityBase<string>
+    public class Department : EntityBase<string>
     {
         public Department()
         {
