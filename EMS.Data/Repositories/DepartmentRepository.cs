@@ -29,7 +29,7 @@ namespace EMS.Data.Repositories
         }
 
         /// <summary>
-        /// Gets the Department Entities of an Employee showing which Departments they worked in.  
+        /// Gets the Department Entities of an Employee showing which Departments they worked in.
         /// </summary>
         /// <param name="employeeId"></param>
         /// <returns>Returns an IEnumerable in descending ordered by the FromDate.</returns>
@@ -49,7 +49,7 @@ namespace EMS.Data.Repositories
         /// <returns></returns>
         public IDictionary<string, string> GetDepartmentNameDictionary()
         {
-            IDictionary<string, string> departmentNameDictionary = new Dictionary<string, string>();
+            var departmentNameDictionary = new Dictionary<string, string>();
 
             var temp = from d in this.Context.Departments
                        select new { d.Id, d.Name };
