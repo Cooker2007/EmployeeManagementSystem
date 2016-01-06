@@ -52,7 +52,7 @@ namespace EMS.Domain
         class MaleType : GenderType
         {
             public MaleType()
-                : base(1, "Male")
+                : base(1, nameof(Male))
             {
             }
 
@@ -83,7 +83,7 @@ namespace EMS.Domain
         class FemaleType : GenderType
         {
             public FemaleType()
-                : base(2, "Female")
+                : base(2, nameof(Female))
             {
             }
 
@@ -114,7 +114,7 @@ namespace EMS.Domain
         class OtherType : GenderType
         {
             public OtherType()
-                : base(3, "Other")
+                : base(3, nameof(Other))
             {
             }
 
