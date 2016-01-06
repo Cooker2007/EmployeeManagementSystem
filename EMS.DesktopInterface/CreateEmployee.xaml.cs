@@ -35,7 +35,7 @@ namespace EMS.DesktopInterface
 
         private void Gender_Loaded(object sender, RoutedEventArgs e)
         {
-            var data = new List<string>() { "Male", "Female", "Other" };
+            var data = new List<string> { "Male", "Female", "Other" };
 
             var comboBox = sender as ComboBox;
 

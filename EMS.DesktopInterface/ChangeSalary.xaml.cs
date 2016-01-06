@@ -27,7 +27,7 @@ namespace EMS.DesktopInterface
         {
             this.InitializeComponent();
         }
-        
+
         public ChangeSalary(Processing processing, EmployeeViewModel currentEmployeeData)
         {
 
