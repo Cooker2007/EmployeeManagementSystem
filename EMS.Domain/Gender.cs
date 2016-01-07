@@ -1,6 +1,7 @@
 ﻿using System;
 using Infrastructure.Common;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace EMS.Domain
 {
@@ -23,14 +24,12 @@ namespace EMS.Domain
         {
             if (s != null)
             {
-                var genders = Gender.GetAll(typeof(Gender));
+                var genders = (IEnumerable<Gender>) GetAll(typeof (Gender));
                 var value = s.ToLower();
 
                 foreach (var gender in genders)
                 {
-                    var temp = gender as Gender;
-
-                    if (temp != null && temp.InternalTryParse(value, out result))
+                    if (gender.InternalTryParse(value, out result))
                     {
                         return true;
                     }
@@ -61,14 +60,8 @@ namespace EMS.Domain
                     "m",
                     "male",
                 };
-
-                foreach (var acceptibleValue in acceptibleValues)
+                if (acceptibleValues.Contains(value))
                 {
-                    if (!value.Equals(acceptibleValue))
-                    {
-                        continue;
-                    }
-
                     result = Gender.Male;
                     return true;
                 }
@@ -93,13 +86,8 @@ namespace EMS.Domain
                     "female",
                 };
 
-                foreach (var acceptibleValue in acceptibleValues)
+                if (acceptibleValues.Contains(value))
                 {
-                    if (!value.Equals(acceptibleValue))
-                    {
-                        continue;
-                    }
-
                     result = Gender.Female;
                     return true;
                 }
@@ -124,13 +112,8 @@ namespace EMS.Domain
                     "other",
                 };
 
-                foreach (var acceptibleValue in acceptibleValues)
+                if (acceptibleValues.Contains(value))
                 {
-                    if (!value.Equals(acceptibleValue))
-                    {
-                        continue;
-                    }
-
                     result = Gender.Other;
                     return true;
                 }
@@ -148,7 +131,7 @@ namespace EMS.Domain
 
             protected override bool InternalTryParse(string value, out Gender result)
             {
-                result = null;
+                result = Gender.Unknown;
                 return false;
             }
         }
