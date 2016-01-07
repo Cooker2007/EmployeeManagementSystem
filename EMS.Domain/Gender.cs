@@ -1,37 +1,34 @@
-﻿using Infrastructure.Common;
+﻿using System;
+using Infrastructure.Common;
 using System.Collections.Generic;
 
 namespace EMS.Domain
 {
-    public class GenderType : Enumeration
+    public abstract class Gender : Enumeration
     {
-        protected GenderType(int value, string displayName)
-            : base(value, displayName)
+        private Gender(InternalGenderEnum internalGenderEnum)
+            : base((int)internalGenderEnum, internalGenderEnum.ToString())
         {
         }
 
-        public GenderType()
-        {
-        }
+        public static readonly Gender Male = new MaleType();
 
-        public static readonly GenderType Male = new MaleType();
+        public static readonly Gender Female = new FemaleType();
 
-        public static readonly GenderType Female = new FemaleType();
+        public static readonly Gender Other = new OtherType();
 
-        public static readonly GenderType Other = new OtherType();
+        public static readonly Gender Unknown = new UnknownType();
 
-        public static readonly GenderType Unknown = new UnknownType();
-
-        public static bool TryParse(string s, out GenderType result)
+        public static bool TryParse(string s, out Gender result)
         {
             if (s != null)
             {
-                var genders = GenderType.GetAll(typeof(GenderType));
+                var genders = Gender.GetAll(typeof(Gender));
                 var value = s.ToLower();
 
-                foreach (var gender in GetAll(typeof(GenderType)))
+                foreach (var gender in genders)
                 {
-                    var temp = gender as GenderType;
+                    var temp = gender as Gender;
 
                     if (temp != null && temp.InternalTryParse(value, out result))
                     {
@@ -39,24 +36,24 @@ namespace EMS.Domain
                     }
                 }
             }
-            result = GenderType.Unknown;
+            result = Gender.Unknown;
             return false;
         }
 
-        protected virtual bool InternalTryParse(string value, out GenderType result)
+        protected virtual bool InternalTryParse(string value, out Gender result)
         {
             result = null;
             return false;
         }
 
-        class MaleType : GenderType
+        class MaleType : Gender
         {
             public MaleType()
-                : base(1, nameof(Male))
+                : base(InternalGenderEnum.Male)
             {
             }
 
-            protected override bool InternalTryParse(string value, out GenderType result)
+            protected override bool InternalTryParse(string value, out Gender result)
             {
                 var acceptibleValues = new List<string>
                 {
@@ -72,7 +69,7 @@ namespace EMS.Domain
                         continue;
                     }
 
-                    result = GenderType.Male;
+                    result = Gender.Male;
                     return true;
                 }
                 result = null;
@@ -80,14 +77,14 @@ namespace EMS.Domain
             }
         }
 
-        class FemaleType : GenderType
+        class FemaleType : Gender
         {
             public FemaleType()
-                : base(2, nameof(Female))
+                : base(InternalGenderEnum.Female)
             {
             }
 
-            protected override bool InternalTryParse(string value, out GenderType result)
+            protected override bool InternalTryParse(string value, out Gender result)
             {
                 var acceptibleValues = new List<string>
                 {
@@ -103,7 +100,7 @@ namespace EMS.Domain
                         continue;
                     }
 
-                    result = GenderType.Female;
+                    result = Gender.Female;
                     return true;
                 }
                 result = null;
@@ -111,14 +108,14 @@ namespace EMS.Domain
             }
         }
 
-        class OtherType : GenderType
+        class OtherType : Gender
         {
             public OtherType()
-                : base(3, nameof(Other))
+                : base(InternalGenderEnum.Other)
             {
             }
 
-            protected override bool InternalTryParse(string value, out GenderType result)
+            protected override bool InternalTryParse(string value, out Gender result)
             {
                 var acceptibleValues = new List<string>
                 {
@@ -134,7 +131,7 @@ namespace EMS.Domain
                         continue;
                     }
 
-                    result = GenderType.Other;
+                    result = Gender.Other;
                     return true;
                 }
                 result = null;
@@ -142,18 +139,26 @@ namespace EMS.Domain
             }
         }
 
-        class UnknownType : GenderType
+        class UnknownType : Gender
         {
             public UnknownType()
-                : base(0, "Unknown")
+                : base(InternalGenderEnum.Unknown)
             {
             }
 
-            protected override bool InternalTryParse(string value, out GenderType result)
+            protected override bool InternalTryParse(string value, out Gender result)
             {
                 result = null;
                 return false;
             }
+        }
+
+        enum InternalGenderEnum
+        {
+            Unknown = 0,
+            Male = 1,
+            Female = 2,
+            Other = 3
         }
     }
 }
