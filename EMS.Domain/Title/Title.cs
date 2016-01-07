@@ -7,6 +7,9 @@ namespace EMS.Domain
 
     public class Title : EntityBase<int>
     {
+        /// <summary>
+        /// Do not use. Needed for Entity Framework
+        /// </summary>
         protected Title() { }
 
         private Title(int employeeId, string name, DateTime? fromDate)
