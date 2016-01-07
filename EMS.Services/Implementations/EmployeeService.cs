@@ -183,8 +183,8 @@ namespace EMS.Services.Implementations
 
                 if (employee != null)
                 {
-                    GenderType gender;
-                    GenderType.TryParse(updateEmployeeRequest.EmployeePorperties.Gender, out gender);
+                    Gender gender;
+                    Gender.TryParse(updateEmployeeRequest.EmployeePorperties.Gender, out gender);
 
                     employee.UpdateEmployeeData(updateEmployeeRequest.EmployeePorperties.FirstName,
                         updateEmployeeRequest.EmployeePorperties.LastName,
@@ -253,10 +253,10 @@ namespace EMS.Services.Implementations
             DateTime? nullableBirthDate = DateTimeHelper.ParseNullableDateTime(insertEmployeePorperties.BirthDate);
             DateTime? nullableHireDate = DateTimeHelper.ParseNullableDateTime(insertEmployeePorperties.HireDate);
             
-            GenderType gender;
-            if (!GenderType.TryParse(insertEmployeePorperties.Gender, out gender))
+            Gender gender;
+            if (!Gender.TryParse(insertEmployeePorperties.Gender, out gender))
             {
-                gender = GenderType.Unknown;
+                gender = Gender.Unknown;
             }
 
             Employee newEmployee = Employee.CreateEmployee(insertEmployeePorperties.FirstName, insertEmployeePorperties.LastName, nullableBirthDate,

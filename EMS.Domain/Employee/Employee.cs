@@ -11,9 +11,9 @@ namespace EMS.Domain
         {
         }
 
-        private GenderType gender;
+        private Gender gender;
 
-        private Employee(string firstName, string lastName, DateTime? birthDate, DateTime? hireDate, GenderType gender)
+        private Employee(string firstName, string lastName, DateTime? birthDate, DateTime? hireDate, Gender gender)
         {
             this.Gender = gender;
             this.FirstName = firstName;
@@ -29,11 +29,11 @@ namespace EMS.Domain
 
         public string GenderDatabase { get; set; }
 
-        public GenderType Gender
+        public Gender Gender
         {
             get
             {
-                GenderType.TryParse(this.GenderDatabase, out this.gender);
+                Gender.TryParse(this.GenderDatabase, out this.gender);
                 return this.gender;
             }
             set
@@ -97,7 +97,7 @@ namespace EMS.Domain
             {
                 this.AddBrokenRule(EmployeeBusinessRule.EmployeeLastNameRequired);
             }
-            if (this.Gender == null || Equals(this.Gender, GenderType.Unknown))
+            if (this.Gender == null || Equals(this.Gender, Gender.Unknown))
             {
                 this.AddBrokenRule(EmployeeBusinessRule.EmployeeGenderRequired);
             }
@@ -113,14 +113,14 @@ namespace EMS.Domain
 
         private void SetGender(string value)
         {
-            GenderType temp;
-            if (GenderType.TryParse(value, out temp))
+            Gender temp;
+            if (Gender.TryParse(value, out temp))
             {
                 this.Gender = temp;
             }
             else
             {
-                this.Gender = GenderType.Other;
+                this.Gender = Domain.Gender.Other;
             }
         }
 
@@ -129,17 +129,17 @@ namespace EMS.Domain
         {
             if (updateGender != null)
             {
-                GenderType result;
-                if (GenderType.TryParse(updateGender, out result))
+                Gender result;
+                if (Domain.Gender.TryParse(updateGender, out result))
                 {
                     this.UpdateEmployeeData(firstName, lastName, birthDate, result);
                 }
             }
 
-            this.UpdateEmployeeData(firstName, lastName, birthDate, (GenderType)null);
+            this.UpdateEmployeeData(firstName, lastName, birthDate, (Gender)null);
         }
 
-        public void UpdateEmployeeData(string firstName = null, string lastName = null, string birthDate = null, GenderType updateGender = null)
+        public void UpdateEmployeeData(string firstName = null, string lastName = null, string birthDate = null, Gender updateGender = null)
         {
             if (firstName != null)
             {
@@ -163,7 +163,7 @@ namespace EMS.Domain
             }
         }
 
-        public static Employee CreateEmployee(string firstName, string lastName, DateTime? birthDate, DateTime? hireDate, GenderType gender)
+        public static Employee CreateEmployee(string firstName, string lastName, DateTime? birthDate, DateTime? hireDate, Gender gender)
         {
             var newEmployee = new Employee(firstName, lastName, birthDate, hireDate, gender);
             return newEmployee;

@@ -13,17 +13,17 @@ namespace EMS.Services
     /// </summary>
     static public class MainService
     {
-        static private EMSContext Context { get; set; }
+        static private EMSContext Context { get;}
 
-        private static IEmployeeRepository EmployeeRepository { get; set; }
-        private static IDepartmentRepository DepartmentRepository { get; set; }
-        private static ISalaryRepository SalaryRepository { get; set; }
-        private static ITitleRepository TitleRepositoy { get; set; }
-        private static IDepartmentEmployeeRepository DepartmentEmployeeRepository { get; set; }
+        private static IEmployeeRepository EmployeeRepository { get;}
+        private static IDepartmentRepository DepartmentRepository { get;}
+        private static ISalaryRepository SalaryRepository { get;}
+        private static ITitleRepository TitleRepositoy { get;}
+        private static IDepartmentEmployeeRepository DepartmentEmployeeRepository { get;}
 
-        public static IEmployeeService EmployeeService { get; private set; }
-        public static IDepartmentService DepartmentService { get; private set; }
-        public static ISalaryService SalaryService { get; private set; }
+        public static IEmployeeService EmployeeService { get;}
+        public static IDepartmentService DepartmentService { get;}
+        public static ISalaryService SalaryService { get;}
 
         static MainService()
         {

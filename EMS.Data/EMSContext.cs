@@ -21,7 +21,7 @@ namespace EMS.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Ignore<GenderType>();
+            modelBuilder.Ignore<Gender>();
 
             modelBuilder.Configurations.Add(new DepartmentConfiguration());
             modelBuilder.Configurations.Add(new DepartmentEmployeeConfiguration());
