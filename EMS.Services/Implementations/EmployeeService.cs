@@ -300,7 +300,7 @@ namespace EMS.Services.Implementations
                         }
                         else
                         {
-                            response.Exception = new ArgumentOutOfRangeException("fromDate", "The From Date cannot be earlier the previous from date");
+                            response.Exception = new ArgumentOutOfRangeException(nameof(Salary.FromDate), "The From Date cannot be earlier the previous from date");
 
                         }
                         if(previousSalary == null)
