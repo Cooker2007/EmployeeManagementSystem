@@ -22,11 +22,6 @@ namespace EMS.DesktopInterface
     {
         private readonly Processing processing;
 
-        public CreateEmployee()
-        {
-            this.InitializeComponent();
-        }
-
         public CreateEmployee(Processing processing)
         {
             this.InitializeComponent();

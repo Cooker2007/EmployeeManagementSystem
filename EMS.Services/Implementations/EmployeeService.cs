@@ -10,7 +10,7 @@ using System.Text;
 using EMS.Services.ViewModels;
 using Infrastructure.Common.HelperMethods;
 
-namespace EMS.Services.Implementations
+namespace EMS.Services
 {
     public class EmployeeService : IEmployeeService
     {

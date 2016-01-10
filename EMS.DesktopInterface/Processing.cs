@@ -15,9 +15,16 @@ namespace EMS.DesktopInterface
 {
     public class Processing
     {
-        private readonly IEmployeeService employeeService = MainService.EmployeeService;
-        private readonly IDepartmentService departmentService = MainService.DepartmentService;
-        private readonly ISalaryService salaryService = MainService.SalaryService;
+        public Processing(IEmployeeService employeeService, IDepartmentService departmentService, ISalaryService salaryService)
+        {
+            this.employeeService = employeeService;
+            this.departmentService = departmentService;
+            this.salaryService = salaryService;
+        }
+
+        private readonly IEmployeeService employeeService;
+        private readonly IDepartmentService departmentService;
+        private readonly ISalaryService salaryService;
 
 
         public IEnumerable<TitleViewModel> GetEmployeeTitleHistory(int employeeId)

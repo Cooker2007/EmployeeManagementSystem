@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EMS.Services.Implementations
+namespace EMS.Services
 {
     public class ResourceNotFoundException : Exception
     {

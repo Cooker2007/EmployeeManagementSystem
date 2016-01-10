@@ -19,18 +19,22 @@ namespace EMS.DesktopInterface
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly Processing processing = new Processing();
+        private readonly Processing processing;
 
-        private readonly IEmployeeService employeeService = MainService.EmployeeService;
-        private readonly IDepartmentService departmentService = MainService.DepartmentService;
+        private readonly IEmployeeService employeeService;
+        private readonly IDepartmentService departmentService;
 
         private EmployeeViewModel CurrentEmployeeData { get; set; }
 
 
 
-        public MainWindow()
+        public MainWindow(IEmployeeService employeeService, IDepartmentService departmentService, Processing processing)
         {
             this.InitializeComponent();
+
+            this.employeeService = employeeService;
+            this.departmentService = departmentService;
+            this.processing = processing;
         }
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)

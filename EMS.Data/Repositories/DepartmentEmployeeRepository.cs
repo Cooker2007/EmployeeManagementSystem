@@ -1,6 +1,7 @@
 ﻿using EMS.Domain;
 using Infrastructure.Common;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace EMS.Data.Repositories
