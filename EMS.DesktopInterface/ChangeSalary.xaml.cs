@@ -22,19 +22,14 @@ namespace EMS.DesktopInterface
     {
         private readonly Processing processor;
         private readonly EmployeeViewModel employeeData;
-
-        public ChangeSalary()
-        {
-            this.InitializeComponent();
-        }
-
+        
         public ChangeSalary(Processing processing, EmployeeViewModel currentEmployeeData)
         {
-
             this.InitializeComponent();
             this.processor = processing;
             this.employeeData = currentEmployeeData;
 
+            this.InitializeComponent();
         }
 
         private void SalaryStartsOn_Loaded(object sender, RoutedEventArgs e)

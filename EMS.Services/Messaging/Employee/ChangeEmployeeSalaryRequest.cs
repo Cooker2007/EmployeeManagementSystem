@@ -11,9 +11,8 @@ namespace EMS.Services.Messaging.Employee
     {
         public ChangeEmployeeSalaryRequest(int id) : base(id)
         {
-            
         }
-        
+
         public SalaryProperties Properties { get; set; }
     }
 }

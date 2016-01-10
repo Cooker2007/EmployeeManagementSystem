@@ -53,7 +53,6 @@
     <Compile Include="Interfaces\IDepartmentService.cs" />
     <Compile Include="Interfaces\IEmployeeService.cs" />
     <Compile Include="Interfaces\ISalaryService.cs" />
-    <Compile Include="MainService.cs" />
     <Compile Include="Messaging\Department\GetDepartmentNamesResponse.cs" />
     <Compile Include="Messaging\Department\GetDepartmentsResponse.cs" />
     <Compile Include="Messaging\Employee\ChangeEmployeeDepartmentRequest.cs" />

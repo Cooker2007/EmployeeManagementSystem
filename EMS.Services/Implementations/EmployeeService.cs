@@ -10,7 +10,7 @@ using System.Text;
 using EMS.Services.ViewModels;
 using Infrastructure.Common.HelperMethods;
 
-namespace EMS.Services.Implementations
+namespace EMS.Services
 {
     public class EmployeeService : IEmployeeService
     {
@@ -300,7 +300,7 @@ namespace EMS.Services.Implementations
                         }
                         else
                         {
-                            response.Exception = new ArgumentOutOfRangeException("fromDate", "The From Date cannot be earlier the previous from date");
+                            response.Exception = new ArgumentOutOfRangeException(nameof(Salary.FromDate), "The From Date cannot be earlier the previous from date");
 
                         }
                         if(previousSalary == null)

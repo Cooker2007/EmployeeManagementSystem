@@ -3,7 +3,7 @@ using EMS.Services.Interfaces;
 using EMS.Services.Messaging.Salary;
 using System;
 
-namespace EMS.Services.Implementations
+namespace EMS.Services
 {
     public class SalaryService : ISalaryService
     {

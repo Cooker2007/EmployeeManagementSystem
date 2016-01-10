@@ -54,9 +54,16 @@
   <PropertyGroup>
     <ApplicationIcon>Users.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>EMS.DesktopInterface.ProgramRoot</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleInjector, Version=3.1.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.3.1.2\lib\net45\SimpleInjector.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -125,6 +132,7 @@
     <Compile Include="CreateEmployee.xaml.cs">
       <DependentUpon>CreateEmployee.xaml</DependentUpon>
     </Compile>
+    <Compile Include="IoCContainer.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -132,6 +140,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Processing.cs" />
+    <Compile Include="ProgramRoot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -5,9 +5,9 @@ using EMS.Services.ViewModels;
 using System;
 using System.Linq;
 
-namespace EMS.Services.Implementations
+namespace EMS.Services
 {
-    internal class DepartmentService : IDepartmentService
+    public class DepartmentService : IDepartmentService
     {
         private readonly IDepartmentRepository departmentRepository;
 
