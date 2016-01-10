@@ -5,8 +5,10 @@ using System.Linq;
 
 namespace EMS.Domain
 {
-    public abstract class Gender : Enumeration
+    public class Gender : Enumeration
     {
+        public Gender() { }
+
         private Gender(InternalGenderEnum internalGenderEnum)
             : base((int)internalGenderEnum, internalGenderEnum.ToString())
         {
@@ -24,7 +26,7 @@ namespace EMS.Domain
         {
             if (s != null)
             {
-                var genders = (IEnumerable<Gender>) GetAll(typeof (Gender));
+                var genders = GetAll(typeof(Gender)).Cast<Gender>();
                 var value = s.ToLower();
 
                 foreach (var gender in genders)
