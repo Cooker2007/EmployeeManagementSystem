@@ -16,12 +16,9 @@ namespace EMS.DesktopInterface
         public static void Main()
         {
             var container = IoCContainer.CreateContainer();
-
             AppDomain.CurrentDomain.SetData("DataDirectory", System.Environment.CurrentDirectory);
 
             RunApplication(container);
-
-
         }
 
         private static void RunApplication(Container container)
