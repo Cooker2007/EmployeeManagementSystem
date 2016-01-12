@@ -1,4 +1,4 @@
-﻿namespace Infrastructure.Common.Domain
+﻿namespace Infrastructure.Common
 {
     public interface IEntity<TIdType>
     {

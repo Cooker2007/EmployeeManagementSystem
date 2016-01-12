@@ -1,9 +1,9 @@
-﻿namespace Infrastructure.Common.Domain
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq.Expressions;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 
+namespace Infrastructure.Common
+{
     public interface IReadOnlyRepository<TEntity, TIdType>
         where TEntity : IEntity<TIdType>
     {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Infrastructure.Common.Domain
+namespace Infrastructure.Common
 {
     public abstract class EntityBase<TIdType> : IEntity<TIdType>
     {
