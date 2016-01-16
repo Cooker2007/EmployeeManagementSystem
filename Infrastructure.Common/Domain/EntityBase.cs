@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Infrastructure.Common.Domain;
 
 namespace Infrastructure.Common
@@ -6,6 +7,8 @@ namespace Infrastructure.Common
     public abstract class EntityBase<TIdType> : IEntity<TIdType>
     {
         public TIdType Id { get; set; }
+
+        public Guid Guid { get; set; }
 
         private List<BusinessRule> brokenRules = new List<BusinessRule>();
 

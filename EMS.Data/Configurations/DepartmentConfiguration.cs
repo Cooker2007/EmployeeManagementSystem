@@ -22,6 +22,8 @@ namespace EMS.Data.Configurations
                 .HasMaxLength(4)
                 .IsFixedLength();
 
+
+            this.Property(e => e.Guid).HasColumnName("guid").HasColumnType("varchar");
             this.Property(e => e.Name).HasColumnName("dept_name").HasColumnType("varchar").IsRequired().HasMaxLength(40);
 
             // Relationships

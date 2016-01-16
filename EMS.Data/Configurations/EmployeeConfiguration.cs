@@ -33,6 +33,8 @@ namespace EMS.Data.Configurations
                 .IsRequired()
                 .HasMaxLength(16);
 
+            this.Property(e => e.Guid).HasColumnName("guid").HasColumnType("varchar");
+
 #pragma warning disable 618
             this.Property(e => e.GenderDatabase).HasColumnName("gender").HasColumnType("varchar").HasMaxLength(1).IsRequired();
 #pragma warning restore 618

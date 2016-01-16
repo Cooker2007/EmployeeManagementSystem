@@ -17,6 +17,8 @@
                 .IsRequired()
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
+            this.Property(e => e.Guid).HasColumnName("guid").HasColumnType("varchar");
+
             this.Property(e => e.Name).HasColumnName("title").HasColumnType("varchar").IsRequired();
 
             this.Property(e => e.EmployeeId).HasColumnName("emp_no").HasColumnType("integer").IsRequired();
