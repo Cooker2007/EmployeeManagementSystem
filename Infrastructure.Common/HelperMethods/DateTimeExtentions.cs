@@ -11,6 +11,13 @@ namespace Infrastructure.Common.HelperMethods
            return nullableDateTime;
        }
 
-
+        public static bool IsBefore(this DateTime first,DateTime second)
+        {
+            if(first.CompareTo(second) < 0)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }
