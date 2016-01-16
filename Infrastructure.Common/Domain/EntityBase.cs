@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Infrastructure.Common.Domain;
 
 namespace Infrastructure.Common
 {

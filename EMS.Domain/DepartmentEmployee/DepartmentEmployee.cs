@@ -1,6 +1,6 @@
-using Infrastructure.Common.Domain;
 using System;
 using System.Security.Cryptography;
+using Infrastructure.Common;
 
 namespace EMS.Domain
 {

@@ -1,4 +1,5 @@
-﻿using Infrastructure.Common.Domain;
+﻿using Infrastructure.Common;
+using Infrastructure.Common.Domain;
 
 namespace EMS.Domain
 {

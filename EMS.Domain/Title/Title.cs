@@ -1,5 +1,5 @@
-using Infrastructure.Common.Domain;
 using System;
+using Infrastructure.Common;
 
 namespace EMS.Domain
 {

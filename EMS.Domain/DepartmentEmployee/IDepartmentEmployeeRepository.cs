@@ -1,5 +1,5 @@
-﻿using Infrastructure.Common.Domain;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Infrastructure.Common;
 
 namespace EMS.Domain
 {

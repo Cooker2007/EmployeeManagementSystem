@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
+using Infrastructure.Common;
 
 namespace EMS.Domain
 {
-    using Infrastructure.Common.Domain;
-
     public interface IDepartmentRepository : IRepository<Department, string>
     {
         IEnumerable<string> GetDepartmentNames();

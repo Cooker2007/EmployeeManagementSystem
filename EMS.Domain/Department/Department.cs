@@ -1,3 +1,4 @@
+using Infrastructure.Common;
 using Infrastructure.Common.Domain;
 using System.Collections.Generic;
 
