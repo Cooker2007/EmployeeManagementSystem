@@ -4,11 +4,13 @@ using EMS.Services.Messaging.Employee;
 using EMS.Services.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
+using EMS.Data;
 
 namespace EMS.DesktopInterface
 {
@@ -205,7 +207,7 @@ namespace EMS.DesktopInterface
 
         }
 
-        private void btnChaneDepatment_Click(object sender, RoutedEventArgs e)
+        private void btnChangeDepatment_Click(object sender, RoutedEventArgs e)
         {
 
         }

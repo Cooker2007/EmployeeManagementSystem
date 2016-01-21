@@ -21,7 +21,7 @@
                 .IsRequired()
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            this.Property(e => e.Guid).HasColumnName("guid").HasColumnType("varchar");
+            this.Property(e => e.Guid).HasColumnName("guid").HasColumnType("UNIQUEIDENTIFIER").IsRequired();
 
             this.Property(e => e.DepartmentId).HasColumnName("dept_no").HasColumnType("varchar").IsRequired();
 

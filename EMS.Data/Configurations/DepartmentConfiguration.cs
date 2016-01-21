@@ -23,7 +23,7 @@ namespace EMS.Data.Configurations
                 .IsFixedLength();
 
 
-            this.Property(e => e.Guid).HasColumnName("guid").HasColumnType("varchar");
+            this.Property(e => e.Guid).HasColumnName("guid").HasColumnType("UNIQUEIDENTIFIER").IsRequired();
             this.Property(e => e.Name).HasColumnName("dept_name").HasColumnType("varchar").IsRequired().HasMaxLength(40);
 
             // Relationships
