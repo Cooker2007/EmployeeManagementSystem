@@ -9,9 +9,9 @@
         public DepartmentManagerConfiguration()
         {
             this.ToTable("dept_manager");
-            this.HasKey(e => e.Id);
+            this.HasKey(e => e.DatabaseId);
 
-            this.Property(e => e.Id)
+            this.Property(e => e.DatabaseId)
                 .HasColumnName("id")
                 .HasColumnType("integer")
                 .IsRequired()

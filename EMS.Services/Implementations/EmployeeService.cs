@@ -223,7 +223,7 @@ namespace EMS.Services
                 {
                     this.employeeRepository.Add(newEmployee);
                     this.employeeRepository.Save();
-                    response.EmployeeId = newEmployee.Id.ToString();
+                    response.EmployeeId = newEmployee.DatabaseId.ToString();
 
                 }
                 // TODO Find more specific exception.
@@ -293,7 +293,7 @@ namespace EMS.Services
 
                     if (!brokenRules.Any())
                     {
-                        var previousSalary = employee.Salaries.OrderByDescending(a => a.Id).FirstOrDefault();
+                        var previousSalary = employee.Salaries.OrderByDescending(a => a.DatabaseId).FirstOrDefault();
                         if (previousSalary != null && previousSalary.UpdateFromDate(newSalary))
                         {
                             employee.AddSalary(newSalary);

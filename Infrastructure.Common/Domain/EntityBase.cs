@@ -6,7 +6,7 @@ namespace Infrastructure.Common
 {
     public abstract class EntityBase<TIdType> : IEntity<TIdType>
     {
-        public TIdType Id { get; set; }
+        public TIdType DatabaseId { get; set; }
 
         public Guid Guid { get; set; }
 
@@ -23,10 +23,10 @@ namespace Infrastructure.Common
             unchecked // Overflow is fine, just wrap
             {
                 int hash = (int)2166136261;
-                if (this.Id != null)
+                if (this.DatabaseId != null)
                 {
-                    hash = hash * 16777619 ^ this.Id.GetHashCode();
-                    hash = hash * 16777619 ^ this.Id.GetHashCode();
+                    hash = hash * 16777619 ^ this.DatabaseId.GetHashCode();
+                    hash = hash * 16777619 ^ this.DatabaseId.GetHashCode();
                 }
                 return hash;
             }
@@ -42,7 +42,7 @@ namespace Infrastructure.Common
             {
                 return false;
             }
-            if (entity1.Id.ToString() == entity2.Id.ToString())
+            if (entity1.DatabaseId.ToString() == entity2.DatabaseId.ToString())
             {
                 return true;
             }

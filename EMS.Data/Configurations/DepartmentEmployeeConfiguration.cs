@@ -12,10 +12,10 @@
             this.ToTable("dept_emp");
 
             // Key
-            this.HasKey(e => e.Id);
+            this.HasKey(e => e.DatabaseId);
 
             // Properties
-            this.Property(e => e.Id)
+            this.Property(e => e.DatabaseId)
                 .HasColumnName("id")
                 .HasColumnType("integer")
                 .IsRequired()
