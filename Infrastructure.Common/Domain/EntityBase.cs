@@ -19,17 +19,7 @@ namespace Infrastructure.Common
 
         public override int GetHashCode()
         {
-            // Overridden because Equals was overridden
-            unchecked // Overflow is fine, just wrap
-            {
-                int hash = (int)2166136261;
-                if (this.DatabaseId != null)
-                {
-                    hash = hash * 16777619 ^ this.DatabaseId.GetHashCode();
-                    hash = hash * 16777619 ^ this.DatabaseId.GetHashCode();
-                }
-                return hash;
-            }
+            return this.Guid.GetHashCode();
         }
 
         public static bool operator ==(EntityBase<TIdType> entity1, EntityBase<TIdType> entity2)
@@ -42,7 +32,7 @@ namespace Infrastructure.Common
             {
                 return false;
             }
-            if (entity1.DatabaseId.ToString() == entity2.DatabaseId.ToString())
+            if (entity1.Guid == entity2.Guid)
             {
                 return true;
             }
