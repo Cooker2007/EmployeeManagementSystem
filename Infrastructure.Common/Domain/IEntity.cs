@@ -4,8 +4,8 @@ namespace Infrastructure.Common
 {
     public interface IEntity<TIdType>
     {
-        TIdType DatabaseId { get; set; }
+        TIdType DatabaseId { get; }
 
-        Guid Guid { get; set; }
+        Guid Guid { get; }
     }
 }

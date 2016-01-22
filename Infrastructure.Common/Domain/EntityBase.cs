@@ -6,9 +6,9 @@ namespace Infrastructure.Common
 {
     public abstract class EntityBase<TIdType> : IEntity<TIdType>
     {
-        public TIdType DatabaseId { get; set; }
+        public TIdType DatabaseId { get; private set; }
 
-        public Guid Guid { get; set; }
+        public Guid Guid { get; private set; }
 
         private List<BusinessRule> brokenRules = new List<BusinessRule>();
 
