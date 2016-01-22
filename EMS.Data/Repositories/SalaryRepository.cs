@@ -21,7 +21,7 @@ namespace EMS.Data.Repositories
         {
             IEnumerable<Salary> salaryHistory = this.Context.Salaries
                 .Where(e => e.EmployeeId == employeeId)
-                .OrderByDescending(e => e.Id)
+                .OrderByDescending(e => e.DatabaseId)
                 .ToList();
 
             return salaryHistory;
@@ -36,7 +36,7 @@ namespace EMS.Data.Repositories
         {
             var salary = this.Context.Salaries
                 .Where(e => e.EmployeeId == employeeId)
-                .OrderByDescending(e => e.Id)
+                .OrderByDescending(e => e.DatabaseId)
                 .FirstOrDefault();
 
             return salary;

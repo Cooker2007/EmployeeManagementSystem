@@ -16,7 +16,7 @@ namespace EMS.Services.ConversionHelper
                 CurrentManager = string.Empty,
                 CurrentSalary = string.Empty,
                 CurrentTitle = string.Empty,
-                Id = employee.Id.ToString(),
+                Id = employee.DatabaseId.ToString(),
                 FirstName = employee.FirstName,
                 Gender = employee.Gender.DisplayName,
                 HireDate = employee.HireDate.Value.ToShortDateString(),
@@ -32,7 +32,7 @@ namespace EMS.Services.ConversionHelper
             {
                 BirthDate = employee.BirthDate.Value.ToShortDateString(),
                 CurrentManager = string.Empty,
-                Id = employee.Id.ToString(),
+                Id = employee.DatabaseId.ToString(),
                 FirstName = employee.FirstName,
                 Gender = employee.Gender.DisplayName,
                 HireDate = employee.HireDate.Value.ToShortDateString(),

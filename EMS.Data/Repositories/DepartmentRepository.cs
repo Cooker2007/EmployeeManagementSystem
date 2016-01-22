@@ -52,7 +52,7 @@ namespace EMS.Data.Repositories
             var departmentNameDictionary = new Dictionary<string, string>();
 
             var temp = from d in this.Context.Departments
-                       select new { d.Id, d.Name };
+                       select new { Id = d.DatabaseId, d.Name };
 
             foreach (var d in temp)
             {

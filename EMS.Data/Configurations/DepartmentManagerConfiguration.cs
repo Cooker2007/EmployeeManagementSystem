@@ -9,13 +9,15 @@
         public DepartmentManagerConfiguration()
         {
             this.ToTable("dept_manager");
-            this.HasKey(e => e.Id);
+            this.HasKey(e => e.DatabaseId);
 
-            this.Property(e => e.Id)
+            this.Property(e => e.DatabaseId)
                 .HasColumnName("id")
                 .HasColumnType("integer")
                 .IsRequired()
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
+            this.Property(e => e.Guid).HasColumnName("guid").HasColumnType("UNIQUEIDENTIFIER").IsRequired();
 
             this.Property(e => e.DepartmentId).HasColumnName("dept_no").HasColumnType("varchar").IsRequired();
 

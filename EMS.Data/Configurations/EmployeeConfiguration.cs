@@ -13,10 +13,10 @@ namespace EMS.Data.Configurations
             this.ToTable("employee");
 
             // Key
-            this.HasKey(e => e.Id);
+            this.HasKey(e => e.DatabaseId);
 
             // Properties
-            this.Property(e => e.Id)
+            this.Property(e => e.DatabaseId)
                 .HasColumnName("emp_no")
                 .HasColumnType("integer")
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
@@ -32,6 +32,8 @@ namespace EMS.Data.Configurations
                 .HasColumnType("varchar")
                 .IsRequired()
                 .HasMaxLength(16);
+
+            this.Property(e => e.Guid).HasColumnName("guid").HasColumnType("UNIQUEIDENTIFIER").IsRequired();
 
 #pragma warning disable 618
             this.Property(e => e.GenderDatabase).HasColumnName("gender").HasColumnType("varchar").HasMaxLength(1).IsRequired();

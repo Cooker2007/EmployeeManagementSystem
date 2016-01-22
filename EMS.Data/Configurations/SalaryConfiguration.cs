@@ -9,13 +9,15 @@
         public SalaryConfiguration()
         {
             this.ToTable("salary");
-            this.HasKey(e => e.Id);
+            this.HasKey(e => e.DatabaseId);
 
-            this.Property(e => e.Id)
+            this.Property(e => e.DatabaseId)
                 .HasColumnName("id")
                 .HasColumnType("integer")
                 .IsRequired()
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
+            this.Property(e => e.Guid).HasColumnName("guid").HasColumnType("UNIQUEIDENTIFIER").IsRequired();
 
             this.Property(e => e.Amount).HasColumnName("salary").HasColumnType("real").IsRequired();
 

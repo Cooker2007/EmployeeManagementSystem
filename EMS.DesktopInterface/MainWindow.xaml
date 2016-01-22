@@ -26,7 +26,7 @@
         <Separator HorizontalAlignment="Left" Height="34" Margin="0" VerticalAlignment="Top" Width="99" Grid.Row="1"/>
         <Label Content="Change&#xA;Employee:" HorizontalAlignment="Left" Margin="14,16,0,0" VerticalAlignment="Top" Height="42" Width="69" Grid.Row="1"/>
         <Button x:Name="btnChangeSalary" Content="Salary" HorizontalAlignment="Left" Margin="10,61,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Height="22" Click="btnChangeSalary_Click"/>
-        <Button x:Name="btnChaneDepatment" Content="Department" HorizontalAlignment="Left" Margin="10,91,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Height="22" Click="btnChaneDepatment_Click" IsEnabled="False"/>
+        <Button x:Name="btnChaneDepatment" Content="Department" HorizontalAlignment="Left" Margin="10,91,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Height="22" Click="btnChangeDepatment_Click" IsEnabled="False"/>
         <Button x:Name="btnChangeTitle" Content="Title" HorizontalAlignment="Left" Margin="10,121,0,53" Grid.Row="1" Width="75" Click="btnChangeTitle_Click" IsEnabled="False"/>
         <Button x:Name="btnDeleteEmployee" Content="Delete&#xD;&#xA;Employee" HorizontalAlignment="Left" Margin="10,185,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Grid.RowSpan="2" Click="btnDeleteEmployee_Click" IsEnabled="False"/>
         <Button x:Name="SaveChanges" Content="Save&#xD;&#xA;Changes"  HorizontalAlignment="Left" Margin="10,0,0,10" Width="75" Click="SaveChanges_Click" Grid.Row="2" Height="38" VerticalAlignment="Bottom"  />
