@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Infrastructure.Common.HelperMethods
+﻿namespace System
 {
     public static class DateTimeHelper
     {
