@@ -57,19 +57,14 @@ namespace EMS.Domain
 
         protected override void Validate()
         {
-            this.RequiredFieldsHaveValues();
+            this.ValidateRequiredFieldsHaveValues();
             this.ValidateBirthDate();
             this.ValidateHireDate();
         }
 
         private void ValidateBirthDate()
         {
-            if (!this.BirthDate.HasValue)
-            {
-                return;
-            }
-            int compareValue = DateTime.Compare(DateTime.Today, this.BirthDate.GetValueOrDefault());
-            if (compareValue < 0)
+            if (this.BirthDate.IsBefore(DateTime.Today))
             {
                 this.AddBrokenRule(EmployeeBusinessRule.EmployeeBirthDateNotInFuture);
             }
@@ -77,17 +72,13 @@ namespace EMS.Domain
 
         private void ValidateHireDate()
         {
-            if (this.BirthDate.HasValue && this.HireDate.HasValue)
+            if (this.BirthDate.IsBefore(this.HireDate))
             {
-                int compareValue = DateTime.Compare(this.HireDate.GetValueOrDefault(), this.BirthDate.GetValueOrDefault());
-                if (compareValue < 0)
-                {
-                    this.AddBrokenRule(EmployeeBusinessRule.EmployeeHiredAfterBorn);
-                }
+                this.AddBrokenRule(EmployeeBusinessRule.EmployeeHiredAfterBorn);
             }
         }
 
-        private void RequiredFieldsHaveValues()
+        private void ValidateRequiredFieldsHaveValues()
         {
             if (string.IsNullOrWhiteSpace(this.FirstName))
             {

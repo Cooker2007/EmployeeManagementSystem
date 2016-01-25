@@ -50,9 +50,7 @@ namespace EMS.Domain
             {
                 return;
             }
-            int compareValue = DateTime.Compare(this.ToDate.GetValueOrDefault(), this.FromDate.Value);
-
-            if (compareValue < 0)
+            if (this.ToDate.IsAfter(this.FromDate))
             {
                 this.AddBrokenRule(DepartmentEmployeeBusinessRule.DepartmentEmployeeToDateIsAfterFromDate);
             }

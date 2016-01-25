@@ -57,7 +57,7 @@ namespace EMS.Domain
             }
             else
             {
-                if (this.FromDate.HasValue && this.ToDate.Value < this.FromDate.Value)
+                if (this.ToDate.IsAfter(this.FromDate))
                 {
                     this.AddBrokenRule(SalaryBusinessRule.SalaryToDateIsAfterFromDate);
                 }
