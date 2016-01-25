@@ -45,5 +45,37 @@
             }
             return false;
         }
+
+        /// <summary>
+        /// Compares the value of this instance to a specified <see cref="T:System.DateTime"/> value and returns a <see cref="T:bool"/> that indicates whether this instance is before than or after than the specified <see cref="T:System.DateTime"/> value.
+        /// </summary>
+        /// <param name="dateTimeA">This <see cref="T:System.DateTime"/> instance.</param>
+        /// <param name="dateTimeB">The <see cref="T:System.DateTime"/> to compare.</param>
+        /// <returns>
+        /// True if <paramref name="dateTimeA"/> is after <paramref name="dateTimeB"/>.
+        /// False if <paramref name="dateTimeA"/> is before of equal<paramref name="dateTimeB"/>, or either parameter is null.
+        /// </returns>
+        public static bool IsAfter(this DateTime dateTimeA, DateTime dateTimeB)
+        {
+            return dateTimeA.CompareTo(dateTimeB) > 0;
+        }
+
+        /// <summary>
+        /// Compares the value of this instance to a specified <see cref="T:Nullable{System.DateTime}"/> value and returns a <see cref="T:bool"/> that indicates whether this instance is before than or after than the specified <see cref="T:Nullable{System.DateTime}"/> value.
+        /// </summary>
+        /// <param name="dateTimeA">This <see cref="T:Nullable{System.DateTime}"/> instance.</param>
+        /// <param name="dateTimeB">The <see cref="T:Nullable{System.DateTime}"/> to compare.</param>
+        /// <returns>
+        /// True if the value of <paramref name="dateTimeA"/> is after the value of <paramref name="dateTimeB"/>,
+        /// false if the value of <paramref name="dateTimeA"/> is before or equal the value of <paramref name="dateTimeB"/>, or either parameter is null.
+        /// </returns>
+        public static bool IsAfter(this DateTime? dateTimeA, DateTime? dateTimeB)
+        {
+            if (dateTimeA.HasValue && dateTimeB.HasValue)
+            {
+                return dateTimeA.Value.IsAfter(dateTimeB.Value);
+            }
+            return false;
+        }
     }
 }
