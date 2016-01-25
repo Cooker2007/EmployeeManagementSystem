@@ -13,9 +13,9 @@ namespace Infrastructure.Common.HelperMethods
 
         public static bool IsBefore(this DateTime first,DateTime second)
         {
-            if(first.CompareTo(second) < 0)
+            if (dateTimeA.HasValue && dateTimeB.HasValue)
             {
-                return true;
+                return dateTimeA.Value.IsBefore(dateTimeB.Value);
             }
             return false;
         }
