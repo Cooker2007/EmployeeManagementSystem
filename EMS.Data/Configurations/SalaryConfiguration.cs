@@ -9,9 +9,9 @@
         public SalaryConfiguration()
         {
             this.ToTable("salary");
-            this.HasKey(e => e.DatabaseId);
+            this.HasKey(e => e.PersistenceId);
 
-            this.Property(e => e.DatabaseId)
+            this.Property(e => e.PersistenceId)
                 .HasColumnName("id")
                 .HasColumnType("integer")
                 .IsRequired()

@@ -6,7 +6,7 @@ namespace Infrastructure.Common
 {
     public abstract class EntityBase<TIdType> : IEntity<TIdType>
     {
-        public TIdType DatabaseId { get; private set; }
+        public TIdType PersistenceId { get; private set; }
 
         public Guid Guid { get; private set; }
 

@@ -8,7 +8,6 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using EMS.Services.ViewModels;
-using Infrastructure.Common.HelperMethods;
 
 namespace EMS.Services
 {
@@ -223,7 +222,7 @@ namespace EMS.Services
                 {
                     this.employeeRepository.Add(newEmployee);
                     this.employeeRepository.Save();
-                    response.EmployeeId = newEmployee.DatabaseId.ToString();
+                    response.EmployeeId = newEmployee.PersistenceId.ToString();
 
                 }
                 // TODO Find more specific exception.
@@ -293,7 +292,7 @@ namespace EMS.Services
 
                     if (!brokenRules.Any())
                     {
-                        var previousSalary = employee.Salaries.OrderByDescending(a => a.DatabaseId).FirstOrDefault();
+                        var previousSalary = employee.Salaries.OrderByDescending(a => a.PersistenceId).FirstOrDefault();
                         if (previousSalary != null && previousSalary.UpdateFromDate(newSalary))
                         {
                             employee.AddSalary(newSalary);

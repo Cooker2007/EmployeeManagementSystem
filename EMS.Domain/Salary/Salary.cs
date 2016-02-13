@@ -74,7 +74,7 @@ namespace EMS.Domain
 
         public static Salary CreateSalary(Employee emp, double amount, DateTime? fromDate)
         {
-            var salary = new Salary(emp.DatabaseId, amount, fromDate);
+            var salary = new Salary(emp.PersistenceId, amount, fromDate);
             return salary;
         }
 

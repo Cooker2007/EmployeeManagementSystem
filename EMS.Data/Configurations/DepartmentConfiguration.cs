@@ -12,10 +12,10 @@ namespace EMS.Data.Configurations
             this.ToTable("department");
 
             // Primary Key
-            this.HasKey(e => e.DatabaseId);
+            this.HasKey(e => e.PersistenceId);
 
             // Properties
-            this.Property(e => e.DatabaseId)
+            this.Property(e => e.PersistenceId)
                 .HasColumnName("dept_no")
                 .HasColumnType("varchar")
                 .IsRequired()
